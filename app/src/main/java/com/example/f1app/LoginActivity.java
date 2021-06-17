@@ -22,13 +22,15 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     private static final String SHARED_PREF_NAME = "my_pref";
     private static final String KEY_USERNAME = "username";
+    private static final String KEY_EMAIL = "email";
+    private static final String KEY_PHONE = "phone";
 
     UserDao userDao;
 
     EditText etUsername, etPassword;
     Button btnLogin, btnRegister;
 
-    String dbUsername = "firstInitial", dbEmail = "firstInitial", dbPassword = "firstInitial";
+    String dbUsername = "firstInitial", dbEmail = "firstInitial", dbPassword = "firstInitial", dbPhone = "firstInitial";
     String sUsername = "", sPassword = "";
 
     @Override
@@ -73,7 +75,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
                 if ((dbUsername.equals(sUsername) && dbPassword.equals(sPassword)) || (dbEmail.equals(sUsername) && dbPassword.equals(sPassword))){
                     SharedPreferences.Editor editor = sharedPreferences.edit();
-                    editor.putString(KEY_USERNAME,etUsername.getText().toString());
+                    editor.putString(KEY_USERNAME,dbUsername);
+                    editor.putString(KEY_EMAIL,dbEmail);
+                    editor.putString(KEY_PHONE,dbPhone);
                     editor.apply();
 
                     Intent intent = new Intent(getApplicationContext(), MainActivity.class);
@@ -96,6 +100,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         dbUsername = "";
         dbEmail = "";
         dbPassword = "";
+        dbPhone = "";
 
         sUsername = etUsername.getText().toString();
         sPassword = etPassword.getText().toString();
@@ -108,6 +113,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 dbUsername = data.getUsername();
                 dbEmail = data.getEmail();
                 dbPassword = data.getPassword();
+                dbPhone = data.getPhoneNumber();
                 break;
             }
         }

@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".fragment.ContentFragment">
+    tools:context=".LineupActivity">
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/tv_title_race"
+        android:id="@+id/cv_title_lineup"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:cardCornerRadius="20dp"
@@ -18,12 +18,14 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:orientation="vertical"
-            android:background="@color/blue">
+            android:background="@color/blue"
+            android:alpha="0.8">
             <TextView
+                android:id="@+id/tv_title_lineup"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="F1 Schedule"
-                android:textSize="28sp"
+                android:text="Event Name"
+                android:textSize="20sp"
                 android:fontFamily="sans-serif-medium"
                 android:textColor="@android:color/white"
                 android:layout_centerInParent="true"/>
@@ -31,10 +33,10 @@
     </androidx.cardview.widget.CardView>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_race"
+        android:id="@+id/rv_lineup"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:listitem="@layout/race_item"
-        android:layout_below="@id/tv_title_race"/>
+        tools:listitem="@layout/lineup_item"
+        android:layout_below="@id/cv_title_lineup"/>
 
 </RelativeLayout>

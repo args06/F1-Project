@@ -20,8 +20,8 @@ public interface F1API {
     Call<RaceResponse> getRace();
 
     @GET("/api/v1/json/1/eventresults.php?")
-    Call<ArrayList<ResultsItem>> getLineUp(@Query("id") String lineUpID);
+    Call<LineUpResponse> getLineUp(@Query("id") String EventID);
 
     @GET("/api/v1/json/1/lookupplayer.php?")
-    Call<ArrayList<PlayersItem>> getRacer(@Query("id") String racerID);
+    Call<RacerResponse> getRacer(@Query("id") String racerID);
 }

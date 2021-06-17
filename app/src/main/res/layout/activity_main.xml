@@ -4,12 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="@drawable/background">
 
     <FrameLayout
         android:id="@+id/frame_container"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        android:layout_above="@id/bottom_nav"/>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_nav"
@@ -19,6 +21,7 @@
         app:menu="@menu/navigation_bar"
         app:itemTextColor="@android:color/black"
         app:itemIconSize="28dp"
-        app:itemIconTint="@android:color/black"/>
+        app:itemIconTint="@android:color/black"
+        android:background="@drawable/botnav_background"/>
 
 </RelativeLayout>

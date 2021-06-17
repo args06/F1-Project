@@ -1,8 +1,11 @@
 package com.example.f1app.model.api.race;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.google.gson.annotations.SerializedName;
 
-public class EventsItem{
+public class EventsItem implements Parcelable {
 
 	@SerializedName("strOfficial")
 	private Object strOfficial;
@@ -192,6 +195,52 @@ public class EventsItem{
 
 	@SerializedName("strStatus")
 	private Object strStatus;
+
+	protected EventsItem(Parcel in) {
+		strSport = in.readString();
+		strTweet1 = in.readString();
+		strTweet2 = in.readString();
+		strTweet3 = in.readString();
+		idLeague = in.readString();
+		strHomeGoalDetails = in.readString();
+		strVideo = in.readString();
+		idEvent = in.readString();
+		intRound = in.readString();
+		dateEvent = in.readString();
+		strCountry = in.readString();
+		strTimestamp = in.readString();
+		strPostponed = in.readString();
+		strMap = in.readString();
+		strBanner = in.readString();
+		strFanart = in.readString();
+		strDescriptionEN = in.readString();
+		dateEventLocal = in.readString();
+		strResult = in.readString();
+		strFilename = in.readString();
+		strTime = in.readString();
+		strVenue = in.readString();
+		strAwayGoalDetails = in.readString();
+		strTimeLocal = in.readString();
+		strLocked = in.readString();
+		strSeason = in.readString();
+		strEvent = in.readString();
+		strThumb = in.readString();
+		strLeague = in.readString();
+		strCity = in.readString();
+		strPoster = in.readString();
+	}
+
+	public static final Creator<EventsItem> CREATOR = new Creator<EventsItem>() {
+		@Override
+		public EventsItem createFromParcel(Parcel in) {
+			return new EventsItem(in);
+		}
+
+		@Override
+		public EventsItem[] newArray(int size) {
+			return new EventsItem[size];
+		}
+	};
 
 	public void setStrOfficial(Object strOfficial){
 		this.strOfficial = strOfficial;
@@ -766,4 +815,44 @@ public class EventsItem{
 			",strStatus = '" + strStatus + '\'' + 
 			"}";
 		}
+
+	@Override
+	public int describeContents() {
+		return 0;
+	}
+
+	@Override
+	public void writeToParcel(Parcel dest, int flags) {
+		dest.writeString(strSport);
+		dest.writeString(strTweet1);
+		dest.writeString(strTweet2);
+		dest.writeString(strTweet3);
+		dest.writeString(idLeague);
+		dest.writeString(strHomeGoalDetails);
+		dest.writeString(strVideo);
+		dest.writeString(idEvent);
+		dest.writeString(intRound);
+		dest.writeString(dateEvent);
+		dest.writeString(strCountry);
+		dest.writeString(strTimestamp);
+		dest.writeString(strPostponed);
+		dest.writeString(strMap);
+		dest.writeString(strBanner);
+		dest.writeString(strFanart);
+		dest.writeString(strDescriptionEN);
+		dest.writeString(dateEventLocal);
+		dest.writeString(strResult);
+		dest.writeString(strFilename);
+		dest.writeString(strTime);
+		dest.writeString(strVenue);
+		dest.writeString(strAwayGoalDetails);
+		dest.writeString(strTimeLocal);
+		dest.writeString(strLocked);
+		dest.writeString(strSeason);
+		dest.writeString(strEvent);
+		dest.writeString(strThumb);
+		dest.writeString(strLeague);
+		dest.writeString(strCity);
+		dest.writeString(strPoster);
+	}
 }

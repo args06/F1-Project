@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cv_race"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="8dp"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginVertical="8dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="16dp"
+                android:maxLines="1"
+                android:text="Title"
+                android:textSize="18sp"/>
+
+            <TextView
+                android:id="@+id/tv_desc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="4dp"
+                android:maxLines="3"
+                android:text="Max Verstappen will have even more desire to win in Azerbaijan after rival manufacturer Mercedes' protest to have Red Bull's rear wings clipped.\r\nThe 2021 Azerbaijan Grand Prix, officially known as the Formula 1 Azerbaijan Grand Prix 2021, was a Formula One motor race held on 6 June 2021 at the Baku City Circuit in Baku, Azerbaijan. The race was the sixth round of the 2021 Formula One World Championship, the fourth time that the Azerbaijan Grand Prix was held and the fifth time that the Baku Street Circuit was part of the Formula One World Championship (2016's race was run as the European Grand Prix). The 51-lap race was won by Sergio Pérez for Red Bull Racing, with Sebastian Vettel taking second place for Aston Martin, and Pierre Gasly taking the final podium place for Scuderia AlphaTauri." />
+
+            <TextView
+                android:id="@+id/tv_location"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginBottom="4dp"
+                android:text="Location : Baku City Circuit, Azerbaijan" />
+
+            <TextView
+                android:id="@+id/tv_date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="16dp"
+                android:paddingVertical="2dp"
+                android:background="@color/blue"
+                android:text="Date"
+                android:textColor="@color/white"
+                android:textSize="14sp"/>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>

@@ -1,8 +1,11 @@
 package com.example.f1app.model.api.lineup;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.google.gson.annotations.SerializedName;
 
-public class ResultsItem{
+public class ResultsItem implements Parcelable {
 
 	@SerializedName("strPlayer")
 	private String strPlayer;
@@ -45,6 +48,34 @@ public class ResultsItem{
 
 	@SerializedName("strSeason")
 	private String strSeason;
+
+	protected ResultsItem(Parcel in) {
+		strPlayer = in.readString();
+		intPoints = in.readString();
+		idResult = in.readString();
+		idEvent = in.readString();
+		strSport = in.readString();
+		strEvent = in.readString();
+		idTeam = in.readString();
+		dateEvent = in.readString();
+		idPlayer = in.readString();
+		intPosition = in.readString();
+		strCountry = in.readString();
+		strDetail = in.readString();
+		strSeason = in.readString();
+	}
+
+	public static final Creator<ResultsItem> CREATOR = new Creator<ResultsItem>() {
+		@Override
+		public ResultsItem createFromParcel(Parcel in) {
+			return new ResultsItem(in);
+		}
+
+		@Override
+		public ResultsItem[] newArray(int size) {
+			return new ResultsItem[size];
+		}
+	};
 
 	public void setStrPlayer(String strPlayer){
 		this.strPlayer = strPlayer;
@@ -178,4 +209,26 @@ public class ResultsItem{
 			",strSeason = '" + strSeason + '\'' + 
 			"}";
 		}
+
+	@Override
+	public int describeContents() {
+		return 0;
+	}
+
+	@Override
+	public void writeToParcel(Parcel dest, int flags) {
+		dest.writeString(strPlayer);
+		dest.writeString(intPoints);
+		dest.writeString(idResult);
+		dest.writeString(idEvent);
+		dest.writeString(strSport);
+		dest.writeString(strEvent);
+		dest.writeString(idTeam);
+		dest.writeString(dateEvent);
+		dest.writeString(idPlayer);
+		dest.writeString(intPosition);
+		dest.writeString(strCountry);
+		dest.writeString(strDetail);
+		dest.writeString(strSeason);
+	}
 }
