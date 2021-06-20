@@ -21,8 +21,11 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     SharedPreferences sharedPreferences;
 
     private static final String SHARED_PREF_NAME = "my_pref";
+    private static final String KEY_ID = "id";
+    private static final String KEY_NAME = "name";
     private static final String KEY_USERNAME = "username";
     private static final String KEY_EMAIL = "email";
+    private static final String KEY_PASSWORD = "password";
     private static final String KEY_PHONE = "phone";
 
     UserDao userDao;
@@ -30,7 +33,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     EditText etUsername, etPassword;
     Button btnLogin, btnRegister;
 
-    String dbUsername = "firstInitial", dbEmail = "firstInitial", dbPassword = "firstInitial", dbPhone = "firstInitial";
+    String dbName = "firstInitial", dbUsername = "firstInitial", dbEmail = "firstInitial", dbPassword = "firstInitial", dbPhone = "firstInitial";
+    int dbId = 0;
     String sUsername = "", sPassword = "";
 
     @Override
@@ -75,8 +79,11 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
                 if ((dbUsername.equals(sUsername) && dbPassword.equals(sPassword)) || (dbEmail.equals(sUsername) && dbPassword.equals(sPassword))){
                     SharedPreferences.Editor editor = sharedPreferences.edit();
+                    editor.putInt(KEY_ID,dbId);
+                    editor.putString(KEY_NAME,dbName);
                     editor.putString(KEY_USERNAME,dbUsername);
                     editor.putString(KEY_EMAIL,dbEmail);
+                    editor.putString(KEY_PASSWORD,dbPassword);
                     editor.putString(KEY_PHONE,dbPhone);
                     editor.apply();
 
@@ -97,6 +104,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     }
 
     private void checkUser(){
+        dbId = 0;
+        dbName = "";
         dbUsername = "";
         dbEmail = "";
         dbPassword = "";
@@ -110,6 +119,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             System.out.println("Output");
             if((data.getUsername().equals(sUsername) || data.getEmail().equals(sUsername) ) || dbPassword.equals(sPassword)){
                 System.out.println("Masuk");
+                dbId = data.getId();
+                System.out.println(dbId);
+                dbName = data.getName();
                 dbUsername = data.getUsername();
                 dbEmail = data.getEmail();
                 dbPassword = data.getPassword();
